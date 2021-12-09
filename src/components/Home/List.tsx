@@ -9,7 +9,13 @@ export default function List({ coins }: { coins?: ICoin[] }) {
   return (
     <Container>
       {coins?.map(({ id, name, symbol, rank }) => (
-        <Card id={id} url={getIconURL(symbol)} name={name} rank={rank} />
+        <Card
+          key={id}
+          id={id}
+          url={getIconURL(symbol)}
+          name={name}
+          rank={rank}
+        />
       ))}
     </Container>
   );

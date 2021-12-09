@@ -10,9 +10,14 @@ export const getCoin = async (id: string) => {
   return await res.json();
 };
 
+export const getCoinPrice = async (id: string) => {
+  const res = await fetch(`${BASE_URL}/tickers/${id}`);
+  return await res.json();
+};
+
 export const getCoinOHLC = async (id: string) => {
   const res = await fetch(
-    `${BASE_URL}/coins/${id}/ohlcv/historical?start=2021-01-01&limit=366`
+    `${BASE_URL}/coins/${id}/ohlcv/historical?start=2021-01-01&limit=20`
   );
   return await res.json();
 };

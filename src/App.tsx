@@ -16,7 +16,7 @@ export default function App() {
         <Global />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/:coinId" component={Detail} />
+          <Route path="/:coinId" component={Detail} />
         </Switch>
       </ThemeProvider>
     </Layout>
