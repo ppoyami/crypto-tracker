@@ -35,6 +35,7 @@ const Heading = styled.header({
     fontSize: '4.5rem',
     top: '50%',
     left: '10%',
+    color: 'white',
   },
 });
 

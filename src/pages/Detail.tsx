@@ -7,10 +7,12 @@ import styled from 'styled-components';
 
 import { ICoinInfo, ICoinOHLC, ICoinPrice } from '../types/coins.type';
 import { candlestickOption } from '../constants';
+import { ReactComponent as Home } from '../assets/home.svg';
 
 export default function Detail() {
   const { coinId } = useParams<{ coinId: string }>();
   const history = useHistory();
+
   const {
     isLoading: infoLoading,
     data: infoData,
@@ -45,7 +47,9 @@ export default function Detail() {
   return (
     <Layout>
       <Heading>
-        <BackBtn onClick={() => history.push('/')}>{'🏠'}</BackBtn>
+        <BackBtn onClick={() => history.push('/')}>
+          <Home width="1em" height="1em" />
+        </BackBtn>
         <h1>{infoData?.name}</h1>
         <p>{infoData?.description}</p>
       </Heading>
@@ -122,9 +126,13 @@ const Heading = styled.header(
     background: theme.colors.background_elevation,
   })
 );
-const BackBtn = styled.button({
+const BackBtn = styled.a({
   fontSize: '2rem',
   marginBottom: '1em',
+  cursor: 'pointer',
+  ':hover': {
+    color: 'orange',
+  },
 });
 const Content = styled.main({
   margin: '0 auto',
@@ -132,7 +140,7 @@ const Content = styled.main({
   marginTop: '2em',
 });
 const ChartContainer = styled.div(({ theme }) => ({
-  background: theme.colors.text,
+  background: 'white',
   padding: '1em',
 }));
 
